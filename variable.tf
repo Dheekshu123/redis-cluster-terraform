@@ -15,7 +15,7 @@ variable "instance_type" {
 
 variable "ami_id" {
   description = "Amazon Linux 2 AMI ID"
-  default     = "ami-012967cc5a8c9f891" # Replace with your desired Amazon Linux 2 AMI ID
+  default     = "ami-07a6f770277670015" # Replace with your desired Amazon Linux 2 AMI ID
 }
 
 variable "key_name" {
