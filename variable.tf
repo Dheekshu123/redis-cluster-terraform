@@ -30,7 +30,7 @@ variable "security_group_name" {
 
 variable "iam_role_name" {
   description = "Name of the IAM role for EC2 instances"
-  default     = "redis-ec2-role"
+  default     = "redis-ec2-role1"
 }
 
 variable "docker_image" {
