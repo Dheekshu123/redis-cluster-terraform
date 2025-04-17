@@ -36,7 +36,7 @@ resource "aws_security_group" "redis_sg" {
 }
 
 # Create an IAM role for EC2 with EC2 Full Access
-resource "aws_iam_role" "redis_ec2_role" {
+resource "aws_iam_role" "redis_ec2_role1" {
   name = var.iam_role_name
 
   assume_role_policy = jsonencode({
@@ -56,14 +56,14 @@ resource "aws_iam_role" "redis_ec2_role" {
 # Attach the EC2 Full Access policy to the IAM role
 resource "aws_iam_policy_attachment" "ec2_full_access" {
   name       = "${var.iam_role_name}-policy-attachment"
-  roles      = [aws_iam_role.redis_ec2_role.name]
+  roles      = [aws_iam_role.redis_ec2_role1.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
 }
 
 # Create an IAM instance profile for the role
 resource "aws_iam_instance_profile" "redis_ec2_profile" {
   name = var.iam_role_name
-  role = aws_iam_role.redis_ec2_role.name
+  role = aws_iam_role.redis_ec2_role1.name
 }
 
 # Launch EC2 instances
